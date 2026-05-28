@@ -1,3 +1,6 @@
 __MACOSX/
 .ipynb_checkpoints/
 dataset/
+.venv
+*.keras
+.vscode/
