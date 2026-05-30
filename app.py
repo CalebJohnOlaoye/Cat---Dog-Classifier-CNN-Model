@@ -28,14 +28,13 @@ else:
     test_image = test_image / 255.0
     test_image = np.expand_dims(test_image, axis = 0)
     result = model.predict(test_image)
-    st.write(f"---{result[0][0]}")
     st.subheader('Prediction Result:')
     if result[0][0] >= 0.5:
         prediction = 'DOG'
-        st.success(f"The Model predicts this is a **{prediction}** Confidence : {result[0][0]:.2f}!")
+        st.success(f"The Model predicts this is a **{prediction}** Confidence : {result[0][0] * 100:.2f}!")
     else:
         prediction = 'CAT'
-        st.success(f"The Model predicts this is a **{prediction}** Confidence : {result[0][0]:.2f}!")
+        st.success(f"The Model predicts this is a **{prediction}** Confidence : {(1-result[0][0]) * 100:.2f}!")
 
     
     
